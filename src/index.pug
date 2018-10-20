@@ -1,0 +1,40 @@
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+body.page
+    .container
+        header.header
+            .logo
+                a.logo__link(href="#") todo
+        main.main
+            form.addtask.validate
+                h2.addtask__intro Добавить задание
+                .addtask__title
+                    label(for='title' class="addtask__label-title" ) Задание:
+                    input(type="text" name="title" id="title" autocomplete="off" required class="addtask__title-input" maxlength="75" minlength="12"  placeholder="Введите название задания")
+                .addtask__type
+                    label(for="type" class="addtask__type-label") Тип:
+                    select(name="type" class="addtask__type-select" id="type" minlength="25" ) 
+                        option.addtask__type-value(value="Дом") Дом
+                        option.addtask__type-value(value="Работа") Работа
+                        option.addtask__type-value(value="Учеба") Учеба
+                .addtask__descr
+                    label(for='descr' class="addtask__label-descr") Описание:
+                    textarea.addtask__descr-field(name="descr" autocomplete="off"  minlength="25"   id="descr" required )
+                .addtask__hard-range
+                    label(for='range' class="addtask__label-hard") Сложность:
+                    input.addtask__hard-range-val(type="range"  min='1' max='5' step='1' requred )
+                    input( type='text' readonly name="complexity"  value='2'  class="addtask__hard-range-field" )
+                input.addtask__go(type="submit" value="Ок")
+            .alltask
+                template.alltask__template
+                    article.alltask__item
+                        h2.alltask__title 
+                        span.alltask__type Тип: 
+                        p.alltask__descr
+                        span.alltask__hard из 5
+
+
+        script(src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js")
